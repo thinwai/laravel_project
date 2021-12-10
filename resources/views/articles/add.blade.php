@@ -31,6 +31,8 @@
  @endforeach
  </select>
  </div>
+
+ <input type="hidden" name="user_id" value="{{ auth()->user()->id }}" class="form-control">
  <input type="submit" value="Add Article"
  class="btn btn-primary">
  </form>

@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
-    /*  Article တွေကိုလည်း အဲ့လိုပဲလူတိုင်းဖျက်လို့မရဘဲ၊ ရေးထားတဲ့သူပဲ ဖျက်လို့ရအောင် ကိုယ့်ဘာသာ စမ်းလုပ်ကြည့်သင့်ပါတယ်။*/
     public function __construct(){
         $this->middleware('auth')->except(['index', 'detail']);
     }
@@ -52,6 +51,7 @@ class ArticleController extends Controller
         $article->title = request()->title;
         $article->body = request()->body;
         $article->category_id = request()->category_id;
+        $article->user_id = request()->user_id;
         $article->save();
         return redirect('/articles');
     }
