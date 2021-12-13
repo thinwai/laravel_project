@@ -14,12 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
-
+Route::get('/', 'ArticleController@index');
 Route::get('/articles', 'ArticleController@index');
-
+Route::get('/articles/user/{id}', 'UserController@user_articles');
 Route::get('/articles/detail/{id}', 'ArticleController@detail');
 
 Route::get('/articles/add', 'ArticleController@add');

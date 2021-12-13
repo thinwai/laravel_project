@@ -40,6 +40,11 @@
                         + Add Article
                         </a>
                         </li>
+                        <li class="nav-item">
+                        <a class="nav-link text-success" href="/articles/user/{{Auth::user()->id}}">
+                        My Article
+                        </a>
+                        </li>
                     @endauth
                     </ul>
 

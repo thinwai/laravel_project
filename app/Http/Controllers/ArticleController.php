@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\User;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -28,10 +30,7 @@ class ArticleController extends Controller
     }
 
     public function add(){
-        $data = [
-        [ "id" => 1, "name" => "News" ],
-        [ "id" => 2, "name" => "Tech" ],
-        ];
+        $data = Category::all();
         return view('articles.add', [
         'categories' => $data
         ]);

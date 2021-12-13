@@ -10,12 +10,14 @@
  Category: <b>{{ $article->category->name }}</b>
  </div>
  <p class="card-text">{{ $article->body }}</p>
+ @auth
  @if($article->user_id == auth()->user()->id)
  <a class="btn btn-warning"
  href="{{ url("/articles/delete/$article->id") }}">
  Delete
  </a>
  @endif
+ @endauth
  </div>
  </div>
  <ul class="list-group mb-2">
@@ -25,12 +27,14 @@
  @foreach($article->comments as $comment)
  <li class="list-group-item">
  {{ $comment->content }}
+ @auth
  @if($comment->user_id == auth()->user()->id)
  <a href="{{ url("/comments/delete/$comment->id") }}"
  class="close">
  &times;
  </a>
  @endif
+ @endauth
  <div class="small mt-2">
  By <b>{{ $comment->user->name }}</b>,
  {{ $comment->created_at->diffForHumans() }}
