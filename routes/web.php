@@ -28,6 +28,12 @@ Route::get('/articles/delete/{id}', 'ArticleController@delete');
 Route::post('/comments/add', 'CommentController@create');
 Route::get('/comments/delete/{id}', 'CommentController@delete');
 
+Route::group(['prefix' => "admin"],function(){
+    Route::get('/', 'AdminController@home');
+    Route::resource('category','CategoryController');
+    Route::post('/category', 'CategoryController@create');
+});
+
             /*Route Names*/
 // Route::get('/articles/detail', function () {
 //     return 'Article Detail';
