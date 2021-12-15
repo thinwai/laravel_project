@@ -4,10 +4,11 @@
     <h4>My Category ({{ count($categories) }})</h4>
 <form method="post">
  @csrf
+ @method('PUT')
  <div class="form-group">
-    <input type="text" name="name" class="form-control" placeholder="Category Name" value="">
+    <input type="text" name="name" class="form-control" placeholder="Category Name" value="{{ $category_name }}">
     
-    <input type="submit" value="Create Category" class="btn btn-primary">
+    <input type="submit" value="Update Category" class="btn btn-danger">
  </div>
  </form>
     <table class="table">
