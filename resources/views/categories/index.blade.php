@@ -1,5 +1,10 @@
 @extends("admin")
 @section("content")
+@if(session('admin_info'))
+ <div class="alert alert-info">
+ {{ session('admin_info') }}
+ </div>
+ @endif
 <div class="mt-3">
     <h4>My Category ({{ count($categories) }})</h4>
 <form method="post">
@@ -13,7 +18,6 @@
     <table class="table">
     <tr>
     <th>No.</th>
-    <th>ID</th>
     <th>Name</th>
     <th>Created At</th>
     <th>Updated At</th>
@@ -21,12 +25,11 @@
     </tr>
     @foreach($categories as $category)
     <tr>
-    <td></td>
-    <td>{{$category->id}}</td>
+    <td>{{$loop->iteration}}</td>
     <td>{{$category->name}}</td>
     <td>{{$category->created_at}}</td>
     <td>{{$category->updated_at}}</td>
-    <td><a class="btn btn-info" href="/admin/category/edit/{{$category->id}}">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
+    <td><a class="btn btn-info" href="/admin/category/edit/{{$category->id}}">Edit</a> <a class="btn btn-danger" href="{{ url("/admin/category/delete/$category->id") }}">Delete</a></td>
     </tr>
     @endforeach
     </table>

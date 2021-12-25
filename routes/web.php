@@ -34,6 +34,7 @@ Route::group(['prefix' => "admin"],function(){
     Route::post('/category', 'CategoryController@create');
     Route::get('/category/edit/{id}', 'CategoryController@edit');
     Route::put('/category/edit/{id}', 'CategoryController@update');
+    Route::get('/category/delete/{id}', 'CategoryController@destroy');
 });
 
             /*Route Names*/

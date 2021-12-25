@@ -74,9 +74,11 @@ class CategoryController extends Controller
 
         $category = Category::find($id);
         $data = $category->name;
+        $category_id = $id;
         return view('categories.update',[
             'categories' => $all_data,
-            'category_name' => $data
+            'category_name' => $data,
+            'category_id' => $category_id
         ]);
     }
 
@@ -92,7 +94,7 @@ class CategoryController extends Controller
         $category = Category::find($id);
         $category->name = request()->name;
         $category->save();
-        return redirect('/admin/category');
+        return redirect('/admin/category')->with('admin_info', 'Category updated');
     }
 
     /**
@@ -103,6 +105,8 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::find($id);
+        $category->delete();
+        return redirect('/admin/category')->with('admin_info', 'Category deleted');
     }
 }

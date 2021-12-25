@@ -27,7 +27,10 @@
     <td>{{$category->name}}</td>
     <td>{{$category->created_at}}</td>
     <td>{{$category->updated_at}}</td>
-    <td><a class="btn btn-info" href="/admin/category/edit/{{$category->id}}">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
+    <td>
+    @if($category->id != $category_id)
+    <a class="btn btn-info" href="/admin/category/edit/{{$category->id}}">Edit</a> <a class="btn btn-danger" href="{{ url("/admin/category/delete/$category->id") }}">Delete</a></td>
+    @endif
     </tr>
     @endforeach
     </table>
