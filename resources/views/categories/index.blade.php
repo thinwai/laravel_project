@@ -6,7 +6,7 @@
  </div>
  @endif
 <div class="mt-3">
-    <h4>My Category ({{ count($categories) }})</h4>
+    <h4>All Categories ({{ count($categories) }})</h4>
 <form method="post">
  @csrf
  <div class="form-group">
