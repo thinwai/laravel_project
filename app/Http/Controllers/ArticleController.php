@@ -14,7 +14,7 @@ class ArticleController extends Controller
     }
 
     public function index(){
-        $data = Article::latest()->paginate(5);
+        $data = Article::where('status_id','=','2')->latest()->paginate(5);
 
         return view('articles.index',[
             'articles' => $data

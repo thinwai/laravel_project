@@ -14,7 +14,7 @@ class ArticleAdminController extends Controller
      */
     public function index()
     {
-        $data = Article::All();
+        $data = Article::latest()->get();   // get latest data model(created_by) 
         return view('articles_admin.index',[
             'articles' => $data,
         ]);
