@@ -25,6 +25,14 @@ class DatabaseSeeder extends Seeder
             "name" => "Bob",
             "email" => "bob@gmail.com",
         ]);
-           
+        \App\Models\ArticleStatus::factory()->create([
+            "name" => "Pending",
+        ]);
+        \App\Models\ArticleStatus::factory()->create([
+            "name" => "Confirmed",
+        ]);
+        \App\Models\ArticleStatus::factory()->create([
+            "name" => "Rejected",
+        ]);   
     }
 }

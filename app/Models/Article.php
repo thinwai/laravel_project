@@ -9,6 +9,10 @@ class Article extends Model
 {
     use HasFactory;
 
+    public function status(){
+        return $this->belongsTo('App\Models\ArticleStatus');
+    }
+
     public function user(){
         return $this->belongsTo("App\Models\User");
     }

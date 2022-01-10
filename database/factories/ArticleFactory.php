@@ -19,6 +19,7 @@ class ArticleFactory extends Factory
             'body' => $this->faker->paragraph,
             'category_id' => rand(1, 5),
             "user_id" => rand(1, 2),
+            "status_id" => rand(1, 3),
         ];
     }
 }

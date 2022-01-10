@@ -5,7 +5,16 @@
  <div class="card-body">
  <h5 class="card-title">{{ $article->title }}</h5>
  <div class="card-subtitle mb-2 text-muted small">
- By <b>{{ $article->user->name }}</b>,
+@auth
+    @if($article->user_id == auth()->user()->id)
+    By <b>you</b>,
+    @else
+    By <b>{{ $article->user->name }}</b>,
+    @endif
+@endauth
+@guest
+By <b>{{ $article->user->name }}</b>,
+@endguest
  {{ $article->created_at->diffForHumans() }},
  Category: <b>{{ $article->category->name }}</b>
  </div>
@@ -36,7 +45,16 @@
  @endif
  @endauth
  <div class="small mt-2">
- By <b>{{ $comment->user->name }}</b>,
+ @auth
+    @if($comment->user_id == auth()->user()->id)
+    By <b>you</b>,
+    @else
+    By <b>{{ $comment->user->name }}</b>,
+    @endif
+@endauth
+@guest
+By <b>{{ $comment->user->name }}</b>,
+@endguest
  {{ $comment->created_at->diffForHumans() }}
  </div>
  </li>

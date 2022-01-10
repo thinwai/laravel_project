@@ -51,6 +51,7 @@ class ArticleController extends Controller
         $article->body = request()->body;
         $article->category_id = request()->category_id;
         $article->user_id = request()->user_id;
+        $article->status_id = '1';
         $article->save();
         return redirect('/articles');
     }

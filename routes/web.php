@@ -30,6 +30,9 @@ Route::get('/comments/delete/{id}', 'CommentController@delete');
 
 Route::group(['prefix' => "admin"],function(){
     Route::get('/', 'AdminController@home');
+    Route::resource('user','UserAdminController');
+    Route::resource('article','ArticleAdminController');
+    
     Route::resource('category','CategoryController');
     Route::post('/category', 'CategoryController@create');
     Route::get('/category/edit/{id}', 'CategoryController@edit');

@@ -22,8 +22,8 @@
 </div>
 </nav>
 <div>
-    <div class="row w-100">
-    <div class="col-md-2 bg-dark vh-100">    
+    <div class="row w-100 vh-100">
+    <div class="col-md-2 bg-dark">    
     <div class="nav flex-column nav-pills mt-2">
     <a href="{{ url('/admin') }}" class="nav-link text-white" >Dashboard</a>
     <a href="{{ url('/admin/article') }}" class="nav-link text-white">Article</a>
